@@ -1,0 +1,15 @@
+syntax = "proto3";
+package org.example.grpc;
+
+message StartCountdown {
+    int32 firstValue = 1;
+    int32 lastValue = 2;
+}
+
+message NewValue {
+  int32 Value = 1;
+}
+
+service NumberService {
+  rpc countdown(StartCountdown) returns (stream NewValue);
+}
