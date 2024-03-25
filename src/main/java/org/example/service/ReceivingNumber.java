@@ -43,7 +43,9 @@ public class ReceivingNumber {
         thread.start();
     }
 
-    public int getCurrentValue() {
-        return currentValue;
+    public int popCurrentValue() {
+        int value = currentValue;
+        currentValue = 0;
+        return value;
     }
 }

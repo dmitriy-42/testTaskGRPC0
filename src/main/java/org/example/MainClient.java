@@ -21,9 +21,11 @@ public class MainClient {
 
         receivingNumber.start();
 
+        int currentValue = 0;
         for (int i = 0; i < 50; i++) {
             TimeUnit.SECONDS.sleep(1);
-            System.out.println("currentValue:" + (i + receivingNumber.getCurrentValue() + 1));
+            currentValue = currentValue + receivingNumber.popCurrentValue() + 1;
+            System.out.println("currentValue:" + currentValue);
         }
 
         channel.shutdownNow();
